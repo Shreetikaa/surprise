@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Binuuuu, Will You Be My Valentine? 💍❤️</title>
+<style>
+body {
+  margin:0;
+  overflow:hidden;
+  font-family:'Poppins',sans-serif;
+  text-align:center;
+  background:linear-gradient(to right,#ff9a9e,#fad0c4);
+  transition:background 1s;
+  position:relative;
+}
+body.night {background:linear-gradient(to right,#141E30,#243B55);}
+.section {display:none; width:100%; height:100vh; padding:20px; box-sizing:border-box;}
+.section.active {display:block; animation:fadeIn 1s;}
+@keyframes fadeIn {from{opacity:0;}to{opacity:1;}}
+.container {
+  position:relative;
+  background:white;
+  padding:35px;
+  border-radius:22px;
+  max-width:500px;
+  margin:0 auto;
+  top:50%;
+  transform:translateY(-50%);
+  box-shadow:0 10px 25px rgba(0,0,0,0.25);
+  z-index:10;
+}
+body.night .container{background:#1f2933;color:white;}
+h1{color:#ff4d6d;}
+body.night h1{color:#ff9a9e;}
+p, .note {color:#555;font-size:16px;}
+body.night p, body.night .note{color:#ddd;}
+button{
+  padding:12px 26px;
+  margin:10px;
+  border:none;
+  border-radius:25px;
+  font-size:15px;
+  cursor:pointer;
+  transition:transform 0.2s;
+}
+button:hover{transform:scale(1.1);}
+.yes{background:#ff4d6d;color:white;}
+.no{background:#ccc;}
+.hug{background:#ff9a9e;color:white;}
+.night-btn{background:#333;color:white;}
+.slideshow{margin:15px 0;position:relative;}
+.slideshow img{width:100%;border-radius:15px;height:220px;object-fit:cover;}
+.caption{margin-top:8px;font-size:14px;color:#777;}
+body.night .caption{color:#ccc;}
+.heart{position:absolute;color:#ff4d6d;animation:float 6s linear infinite;cursor:pointer;}
+@keyframes float{0%{transform:translateY(0);opacity:1;}100%{transform:translateY(-800px);opacity:0;}}
+.firework{position:absolute;width:8px;height:8px;border-radius:50%;animation:explode 1s ease-out forwards;}
+@keyframes explode{to{transform:scale(18);opacity:0;}}
+.confetti{position:absolute;width:10px;height:10px;background:hsl(0,100%,50%);opacity:0.9;transform:rotate(45deg);}
+.flyingText{position:absolute;font-weight:bold;animation:fly 20s linear infinite; text-shadow:0 0 8px #fff, 0 0 12px #ff4d6d;}
+@keyframes fly{0%{top:100%;left:0;}50%{top:30%;left:50%;}100%{top:-10%;left:100%;}}
+.arrow{cursor:pointer;font-size:20px;margin:5px;color:#ff4d6d;}
+body.night .arrow{color:#ff9a9e;}
+.nav{position:fixed;top:20px;right:20px;z-index:100;}
+.nav button{margin-left:8px;}
+.note{margin-top:15px; text-align:left; line-height:1.5;}
+#message-area{position:relative;height:400px;overflow:hidden;}
+#final-message{display:none;margin-top:20px;font-size:20px;color:#ff4d6d;font-weight:bold;}
+.special-note{background:#ffe4e6;padding:15px;border-radius:15px;margin-top:15px;box-shadow:0 4px 12px rgba(0,0,0,0.1);}
+.story-text{margin-top:20px;font-style:italic;line-height:1.5;}
+.star{position:absolute;width:2px;height:2px;border-radius:50%;background:white;opacity:0.8;box-shadow:0 0 6px 2px white;animation:twinkle 3s infinite alternate;}
+@keyframes twinkle{0%{opacity:0.2;}50%{opacity:0.8;}100%{opacity:0.3;}}
+.envelope{
+  width:50px;
+  height:35px;
+  background:#ffe4e6;
+  border:2px solid #ff4d6d;
+  border-radius:5px;
+  position:absolute;
+  cursor:pointer;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:24px;
+  transition:transform 0.3s;
+}
+.envelope:hover{transform: scale(1.2) rotate(-5deg);}
+</style>
+</head>
+<body>
+
+<!-- Music -->
+<audio autoplay loop>
+<source src="https://www.bensound.com/bensound-music/bensound-love.mp3" type="audio/mpeg">
+</audio>
+
+<!-- Navigation -->
+<div class="nav">
+  <button onclick="showSection('home')">Home</button>
+  <button onclick="showSection('story')">Our Story</button>
+  <button onclick="showSection('proposal')">Proposal</button>
+  <button onclick="showSection('messages')">Messages</button>
+</div>
+
+<!-- Home Section -->
+<div class="section active" id="home">
+  <div class="container">
+    <h1>I Lovee youuu Mayaluuuuuu ❤️</h1>
+    <p>Shree has a very special surprise for you 💕</p>
+    <button onclick="showSection('story')">Enter Our Love Story</button>
+  </div>
+</div>
+
+<!-- Story Section -->
+<div class="section" id="story">
+  <div class="container">
+    <h1>Our Journey Together 💖</h1>
+
+    <div class="slideshow">
+      <span class="arrow" onclick="prevSlide()">&#8592;</span>
+      <img id="slide" src="22.jpg" alt="Memory">
+      <span class="arrow" onclick="nextSlide()">&#8594;</span>
+      <div class="caption" id="caption">Our first memory together 💖</div>
+    </div>
+
+    <div class="note special-note">
+      <strong>Special Note 💌</strong><br>
+      Mero mutu ko tukra i miss you so muchhh. You are my whole world taile taha ni chaina how much I miss youuu. My heart heart thinking of that panii. I wish chadai we can celebrate every festival and anniversaries sangaiiiiii. I love youuu mayaluuuuuuuu 💕
+    </div>
+
+    <div class="note story-text">
+      We first met through Abishikha, and I still remember your playful first message: <strong>"Ma Abishikha ko buda ho ni"</strong>.<br>
+      Just two weeks later, you came to meet me, and our first kiss was a moment I will never forget.<br>
+      Life threw many obstacles our way, but our love remained strong.<br>
+      Today, as we await our 5th anniversary, I am grateful for every memory, every smile, and every hug. I can’t wait for the countless moments we’ll create together in the future. 💖
+    </div>
+
+    <button class="hug" onclick="sendHug()">🤗 Send Hug</button>
+    <button class="night-btn" onclick="toggleNight()">🌙 Night Mode</button>
+    <br>
+    <button onclick="showSection('proposal')">Next → Proposal</button>
+  </div>
+</div>
+
+<!-- Proposal Section -->
+<div class="section" id="proposal">
+  <div class="container">
+    <h1>Will You Be My Valentine? 💍💖</h1>
+    <button class="yes" onclick="yesClicked()">Yes 💍💖</button>
+    <button class="no" id="no" onmouseover="moveButton()">No 🙈</button>
+  </div>
+</div>
+
+<!-- Messages Section -->
+<div class="section" id="messages">
+  <div class="container">
+    <h1>Special Love Notes 💌</h1>
+    <p>Click on each envelope to reveal a hidden message!</p>
+    <div id="message-area"></div>
+    <div id="final-message">💖 I love youuu mayaluuuuuuuu 💖</div>
+    <button onclick="showSection('home')">← Back Home</button>
+  </div>
+</div>
+
+<script>
+// Stars background
+for(let i=0;i<80;i++){
+  const star=document.createElement('div');
+  star.className='star';
+  star.style.left=Math.random()*100+'%';
+  star.style.top=Math.random()*100+'%';
+  star.style.width=(1+Math.random()*2)+'px';
+  star.style.height=star.style.width;
+  star.style.animationDuration=(2+Math.random()*3)+'s';
+  document.body.appendChild(star);
+}
+
+// Floating hearts
+setInterval(()=>{
+  const h=document.createElement('div');
+  h.className='heart';
+  h.innerHTML='💗';
+  h.style.left=Math.random()*window.innerWidth+'px';
+  h.style.bottom='0px';
+  h.style.fontSize=Math.random()*20+15+'px';
+  document.body.appendChild(h);
+  h.onmousedown=(e)=>{
+    h.style.position='absolute';
+    let offsetX=e.offsetX, offsetY=e.offsetY;
+    document.onmousemove=(ev)=>{h.style.left=ev.pageX-offsetX+'px';h.style.top=ev.pageY-offsetY+'px';};
+    document.onmouseup=()=>{document.onmousemove=null;};
+  };
+  setTimeout(()=>h.remove(),6000);
+},400);
+
+// Section Navigation
+function showSection(id){
+  document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+}
+
+// Slideshow
+const slides=[
+  {img:"22.jpg", text:"Our first memory together 💖"},
+  {img:"vii.jpeg", text:"Suru Suru ko video calls 💌"},
+  {img:"momo.jpg", text:"Momo banako reyyy 😋"},
+  {img:"Snapchat-1850722042.jpg", text:"I Miss thiss hugsssss 😄"},
+  {img:"hugss.jpg", text:"Forever us ❤️"}
+];
+let index=0;
+function nextSlide(){index=(index+1)%slides.length;updateSlide();}
+function prevSlide(){index=(index-1+slides.length)%slides.length;updateSlide();}
+function updateSlide(){document.getElementById('slide').src=slides[index].img;document.getElementById('caption').innerText=slides[index].text;}
+
+// Hug popup
+const loveNotes=[
+"🤗 Hug sent with all my heart 💕",
+"💌 A secret love note just for you 😘",
+"❤️ Thinking of you always, Binuuuuu 💖",
+"🌹 Sending you a rose virtually 🌹"
+];
+function sendHug(){const note=loveNotes[Math.floor(Math.random()*loveNotes.length)];alert(note);}
+
+// Night mode toggle
+function toggleNight(){document.body.classList.toggle('night');}
+
+// No button wiggle
+function moveButton(){
+  const n=document.getElementById('no');
+  n.style.position='absolute';
+  n.style.top=Math.random()*window.innerHeight+'px';
+  n.style.left=Math.random()*window.innerWidth+'px';
+  n.style.transform='rotate('+Math.random()*360+'deg)';
+}
+
+// Proposal YES button
+function yesClicked(){
+  for(let i=0;i<40;i++){
+    const fw=document.createElement('div');
+    fw.className='firework';
+    fw.style.left=Math.random()*window.innerWidth+'px';
+    fw.style.top=Math.random()*window.innerHeight+'px';
+    fw.style.background=`hsl(${Math.random()*360},100%,60%)`;
+    document.body.appendChild(fw);
+    setTimeout(()=>fw.remove(),1200);
+  }
+
+  setInterval(()=>{
+    const c=document.createElement('div');
+    c.className='confetti';
+    c.style.left=Math.random()*window.innerWidth+'px';
+    c.style.top='-10px';
+    c.style.background=`hsl(${Math.random()*360},100%,50%)`;
+    document.body.appendChild(c);
+    let fall=setInterval(()=>{c.style.top=parseInt(c.style.top)+5+'px';},20);
+    setTimeout(()=>{clearInterval(fall); c.remove();},4000);
+  },100);
+
+  for(let i=0;i<15;i++){
+    const text=document.createElement('div');
+    text.className='flyingText';
+    text.innerText="Shree ❤️ Binu";
+    text.style.color=`hsl(${Math.random()*360},100%,70%)`;
+    text.style.fontSize=(20+Math.random()*25)+'px';
+    text.style.left=Math.random()*80+'%';
+    text.style.top=Math.random()*80+'%';
+    // Increase duration for slower, longer animation
+    text.style.animationDuration = (30 + Math.random() * 20) + 's';
+    document.body.appendChild(text);
+}
+
+
+  setTimeout(()=>{
+    document.body.innerHTML=`
+    <div style="display:flex;justify-content:center;align-items:center;height:100vh;background:#ff4d6d;color:white;text-align:center;font-family:Poppins;">
+      <div>
+        <h1>💍 SURPRISE 💖</h1>
+        <p>Binuuu, you are officially my Valentine ❤️</p>
+        <p>And here's a special message just for you 💕</p>
+        <video autoplay controls style="width:80%;border-radius:15px;margin-top:15px;">
+          <source src="65f2ffcb976b441a86de39de3b0456f8.MOV" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+    </div>`;
+  },1300);
+}
+
+// Messages Section with Envelopes
+const messages = [
+  "Mero mutu ko tukra i miss you so muchhh 💕",
+  "You are my whole world taile taha ni chaina 😘",
+  "My heart heart thinking of that panii ❤️",
+  "I wish chadai we can celebrate every festival & anniversaries sangaiiiiii 🎉",
+  "I love youuu mayaluuuuuuuu 😍"
+];
+
+const messageArea = document.getElementById('message-area');
+messageArea.innerHTML = '';
+let revealed = 0;
+
+for (let i = 0; i < messages.length; i++) {
+  const env = document.createElement('div');
+  env.className = 'envelope';
+  env.innerHTML = '✉️';
+  env.style.left = Math.random() * (messageArea.clientWidth - 50) + 'px';
+  env.style.top = Math.random() * (messageArea.clientHeight - 35) + 'px';
+
+  env.onclick = () => {
+    const note = document.createElement('div');
+    note.className = 'note';
+    note.innerText = messages[revealed];
+    note.style.marginTop = '10px';
+    messageArea.appendChild(note);
+    revealed++;
+    env.style.display = 'none';
+    if (revealed === messages.length) {
+      document.getElementById('final-message').style.display = 'block';
+    }
+  };
+
+  messageArea.appendChild(env);
+}
+</script>
+</body>
+</html>
